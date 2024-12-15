@@ -11,6 +11,10 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        val KEY = "hello"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             val mssg= findViewById<EditText>(R.id.et1).text.toString()
 
             intent = Intent(this, page2::class.java)
-            intent.putExtras(123, mssg)
+            intent.putExtra(KEY, mssg)
             startActivity(intent)
         }
 
@@ -37,6 +41,6 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-private fun Intent.putExtras(i: Int, mssg: String) {
+private fun Intent.putExtras(i: String, mssg: String) {
 
 }
